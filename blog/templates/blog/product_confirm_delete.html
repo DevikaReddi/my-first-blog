@@ -1,0 +1,11 @@
+{% extends 'blog/product_base.html' %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>Delete "{{ product.name }}"?</p>
+        <button type="submit">Yes</button>
+        <button type="button" onclick="window.location.href='{% url 'product_detail' pk=product.pk %}'">No</button>
+    </form>
+
+{% endblock %}

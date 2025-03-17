@@ -1,0 +1,23 @@
+{% extends 'blog/product_base.html' %}
+
+{% block content %}
+    <article class="product">
+        <aside class="actions">
+            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                <a class="btn btn-secondary" href="{% url 'product_edit' pk=product.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+                <a class="btn btn-secondary" href="{% url 'product_delete' pk=product.pk %}">
+                    {% include './icons/trash-fill.svg' %}
+                </a>
+            {% comment %} {% endif %} {% endcomment %}
+        </aside>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description|linebreaksbr }}</p>
+        <p><span class="field-name">Category:</span> {{ product.category }}</p>
+        <p><span class="field-name">Price:</span> ${{ product.price }}</p>
+        <p><span class="field-name">Brand:</span> {{ product.brand }}</p>
+        <p><span class="field-name">Quantity:</span> {{ product.quantity }}</p>
+
+    </article>
+{% endblock %}

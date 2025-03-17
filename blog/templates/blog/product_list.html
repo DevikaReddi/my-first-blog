@@ -1,0 +1,9 @@
+{% extends 'blog/product_base.html' %}
+{% block content %}
+    {% for product in products %}
+        <article class="product">
+            <h2><a href="{% url 'product_detail' pk=product.pk %}">{{ product.name }}</a></h2>
+            <p>{{ product.description|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
